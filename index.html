@@ -60,7 +60,7 @@
             <h1 class="hero-header">
               Efektywne rozwiązania dla waszego biznesu
             </h1>
-            <button class="hero-select" type="button">Zamów usługę</button>
+            <button class="hero-select" type="button" onclick="ani(1)" value="Click" data-modal-open>Zamów usługę</button>
           </div>
         </div>
       </section>
@@ -76,10 +76,9 @@
               <svg class="group-item" width="70" height="70">
                 <use href="images/icons.svg#icon-antenna"></use>
               </svg>
-              <h4 class="abilities-name">Lorem Ipsum</h4>
+              <h4 class="abilities-name">Przywiązanie Do Szczegółów</h4>
               <p class="abilities-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
-                arcu sem. Sed non sodales dui. Interdum et malesuada
+                Skrupulatnie analizujemy szczegóły i procesy twojego biznesu by stworzyć mu optymalny plan działania.
               </p>
             </li>
 
@@ -87,10 +86,9 @@
               <svg class="group-item" width="70" height="70">
                 <use href="images/icons.svg#icon-clock"></use>
               </svg>
-              <h4 class="abilities-name">Lorem Ipsum</h4>
+              <h4 class="abilities-name">Punktualność</h4>
               <p class="abilities-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
-                arcu sem. Sed non sodales dui. Interdum et malesuada
+                Z nami możesz czuć się bezpiecznie. Istotna zasada panująca w firmie: szanujemy twój czas i twoje terminy.
               </p>
             </li>
 
@@ -98,10 +96,9 @@
               <svg class="group-item" width="70" height="70">
                 <use href="images/icons.svg#icon-diagram"></use>
               </svg>
-              <h4 class="abilities-name">Lorem Ipsum</h4>
+              <h4 class="abilities-name">Planowanie</h4>
               <p class="abilities-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
-                arcu sem. Sed non sodales dui. Interdum et malesuada
+                Możesz obserwować i uczestniczyć w każdej fazie planowania i wdrażania rozwiązań. 
               </p>
             </li>
 
@@ -109,10 +106,9 @@
               <svg class="group-item" width="70" height="70">
                 <use href="images/icons.svg#icon-astronaut"></use>
               </svg>
-              <h4 class="abilities-name">Lorem Ipsum</h4>
+              <h4 class="abilities-name">Nowoczesne Technologie</h4>
               <p class="abilities-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
-                arcu sem. Sed non sodales dui. Interdum et malesuada
+                Używamy innowacyjnych narzędzi to rozwiązywania zleceń. Czas uprościć strukturę pracy.
               </p>
             </li>
           </ul>
@@ -124,21 +120,24 @@
         <div class="container">
           <h2 class="job-title">Czym się zajmujemy</h2>
           <ul class="job-example">
-            <li>
+            <li class="job-item">
+              <div class="job-list-item">Aplikacje Komputerowe</div>
               <img
                 src="images/whatdowedo/whatdowedo1.jpg"
                 alt="kodowanie"
                 width="370"
                 height="294" />
             </li>
-            <li>
+            <li class="job-item">
+              <div class="job-list-item">Aplikacje Mobilne</div>
               <img
                 src="images/whatdowedo/whatdowedo2.jpg"
                 alt="stylowanie"
                 width="370"
                 height="294" />
             </li>
-            <li>
+            <li class="job-item">
+              <div class="job-list-item">Rozwiązania Graficzne</div>
               <img
                 src="images/whatdowedo/whatdowedo3.jpg"
                 alt="projektowanie"
@@ -162,7 +161,7 @@
                 width="270"
                 height="260" />
 
-              <h3 class="team-name">John Doe</h3>
+              <h3 class="team-name">Krzystof Pogodny</h3>
               <p class="team-job">Product Designer</p>
               <ul class="social-media-list">
                 <li class="social-media-item">
@@ -195,7 +194,7 @@
                 width="270"
                 height="260" />
 
-              <h3 class="team-name">John Doe</h3>
+              <h3 class="team-name">Kinga Szpak</h3>
               <p class="team-job">Frontend Developer</p>
               <ul class="social-media-list">
                 <li class="social-media-item">
@@ -227,7 +226,7 @@
                 width="270"
                 height="260" />
 
-              <h3 class="team-name">John Doe</h3>
+              <h3 class="team-name">Rafał Borski</h3>
               <p class="team-job">Marketing</p>
               <ul class="social-media-list">
                 <li class="social-media-item">
@@ -259,7 +258,7 @@
                 width="270"
                 height="260" />
 
-              <h3 class="team-name">John Doe</h3>
+              <h3 class="team-name">Tomasz Grzyb</h3>
               <p class="team-job">UI Designer</p>
               <ul class="social-media-list">
                 <li class="social-media-item">
@@ -381,5 +380,11 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="close-btn" data-modal-close></button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

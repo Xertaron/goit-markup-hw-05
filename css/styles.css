@@ -5,6 +5,7 @@
 :root {
   /*Nie wpisałem tu kolorów białego i czarnego jako, że się je szybciej wpisuje niż pozostałe i pojawiają się tylko kilka razy na całej stronie. Czy lepiej jednak wpisywać tu każdy kolor?*/
   --brand-color: rgb(33, 150, 243, 100%);
+  --brand-color-opaque:rgb(33, 150, 243, 90%);
   --text-color: rgb(33, 33, 33, 100%);
   --background-color: rgb(47, 48, 58, 100%);
   --hero-background: rgb(47, 48, 58, 40%);
@@ -12,6 +13,7 @@
   --info-footer-color: rgb(255, 255, 255, 60%);
   --group-color: rgb(245, 244, 250, 100%);
   --icon-color: rgb(175, 177, 184, 100%);
+  --transition-delay:cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -19,6 +21,7 @@ body {
   font-size: 14px;
   background-color: #e5e5e5;
   margin: 0;
+  padding:0;
 }
 
 li {
@@ -44,6 +47,7 @@ stronie nie ułożą się tak jak trzeba.*/
   color: black;
   text-decoration: none;
   margin-right: 93px;
+  transition: var(--transition-delay);
 }
 .website-logo-footer {
   font-family: "Raleway", sans-serif;
@@ -53,6 +57,7 @@ stronie nie ułożą się tak jak trzeba.*/
   color: black;
   text-decoration: none;
   font-style: normal;
+  transition: var(--transition-delay);
 }
 .alternate-logo-color {
   color: white;
@@ -122,14 +127,13 @@ header section ul li:first-child {
 .hero-header {
   font-size: 44px;
   font-weight: 900;
+  letter-spacing: 2.5px;
   line-height: 1.36;
-
   color: white;
-  margin-left: 273px;
-  margin-right: 273px;
-  text-align: center;
+  margin-left: 252px;
+  margin-right: 252px;
+  
   text-transform: uppercase;
-  display: inline-block;
   /*Z uwagi na to że container w figmie jest odrobinę mniejszy, nie jestem w stanie wycentrować elementów przy wykorzystaniu tych samych wartości marginesów.*/
 }
 .hero-select {
@@ -141,6 +145,7 @@ header section ul li:first-child {
   height: 50px;
   border: none;
   border-radius: 4px;
+  transition: var(--transition-delay);
 }
 
 .hero-background {
@@ -166,9 +171,24 @@ a:active,
 .alternate-logo-color:focus,
 .alternate-logo-color:active {
   color: var(--brand-color);
+  transition: var(--transition-delay)
 }
 .current {
   color: var(--brand-color);
+  position: relative;
+  
+  
+}
+.current::after {display: block;
+  content: "";
+  position: absolute;
+  top:44px;
+width: 100%;
+height: 4px;
+border-radius: 2px;
+background-color: var(--brand-color);
+
+
 }
 /*Przyciski*/
 button:hover,
@@ -176,6 +196,7 @@ button:focus,
 button:active {
   background-color: var(--brand-color);
   color: white;
+  transition: var(--transition-delay)
 }
 
 .social-media-item:hover,
@@ -187,6 +208,7 @@ button:active {
   --color4: white;
   background-color: var(--brand-color);
   cursor: pointer;
+  transition: var(--transition-delay)
 }
 .social-media-item:active {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -201,6 +223,7 @@ button:active {
   --color4: var(--brand-color);
   border-color: var(--brand-color);
   cursor: pointer;
+  transition: var(--transition-delay);
 }
 .portfolio-select:hover,
 .portfolio-select:focus,
@@ -208,6 +231,7 @@ button:active {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+  transition: var(--transition-delay);
 }
 .portfolio-main-item:hover,
 .portfolio-main-item:focus,
@@ -215,8 +239,26 @@ button:active {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
-}
+  transition: var(--transition-delay)
+  }
+  .overlay {position: absolute;
+  width: 370px;
+  height: 294px;
+  background-color: var(--brand-color-opaque);
+  font-size: 18px;
+  color: white;
+  line-height: 1.33;
+padding: 49px 45px 49px 24px;
+transition: var(--transition-delay);
+transform: translateY(100%); /*Nie wiem czemu ustawiając na 100%, element minimalnie wystaje... a przynajmniej tak było, zmieniłem z powrotem na 100 i już tego nie ma. Nie mam pojęcia dlaczego.*/
 
+
+}
+.portfolio-main-item:hover .overlay,
+.portfolio-main-item:focus .overlay,
+.portfolio-main-item:active .overlay {transform: translateY(0);
+  transition: var(--transition-delay)
+}
 /*Main*/
 .background-main {
   background-color: white;
@@ -243,6 +285,7 @@ button:active {
   padding: 6px 22px;
   border: none;
   border-radius: 4px;
+  transition: var(--transition-delay);
 }
 li:last-child button {
   margin: 0;
@@ -252,10 +295,15 @@ li:last-child button {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0;
+  
 }
 .portfolio-description {
   padding-left: 24px;
   border: 1px solid #eeeeee;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  
 }
 .portfolio-name {
   font-size: 18px;
@@ -272,7 +320,9 @@ li:last-child button {
 .portfolio-main-item {
   margin-bottom: 30px;
   display: grid;
-}
+  position: relative;
+  overflow: hidden;
+  }
 .portfolio-main-item:nth-child(n + 7) {
   margin-bottom: 0px;
 }
@@ -306,6 +356,7 @@ li:last-child button {
   font-weight: 700;
   line-height: 1.13;
   text-align: center;
+  
 }
 .job-example {
   display: flex;
@@ -314,6 +365,22 @@ li:last-child button {
   gap: 30px;
   padding: 0;
 }
+.job-item {width: 370px;
+height:294px;
+position: relative;}
+.job-list-item {position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0%;
+height: 70px;
+width: 370px;
+background-color: rgba(47,48,58,80%);
+font-weight: 700;
+color: white;
+text-transform: uppercase;
+}
+
 .team-name {
   font-weight: 500;
   font-size: 16px;
@@ -352,6 +419,7 @@ li:last-child button {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: var(--transition-delay);
 }
 .social-media-item:last-child {
   padding-right: 0;
@@ -364,7 +432,9 @@ li:last-child button {
 .our-clients-list {
   display: flex;
   justify-content: space-between;
+  margin-top:50px;
   padding: 0;
+  
 }
 .our-clients-icon {
   width: 170px;
@@ -374,6 +444,7 @@ li:last-child button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: var(--transition-delay);
 }
 
 /*Footer*/
@@ -395,15 +466,15 @@ li:last-child button {
   text-decoration: none;
   line-height: 1.71;
   font-style: normal;
+  transition: var(--transition-delay);
 }
-.info-footer-underline {
-  text-decoration: underline;
-}
+
 .info-footer-location {
   text-decoration: none;
   line-height: 1.71;
   color: white;
   font-style: normal;
+  transition: var(--transition-delay);
 }
 .social-media-list-footer {
   width: 206px;
@@ -414,6 +485,7 @@ li:last-child button {
   flex-direction: column;
   justify-content: center;
   margin-left: 70px;
+  transition: var(--transition-delay);
 }
 .social-media-list-items {
   display: flex;
@@ -441,3 +513,76 @@ li:last-child button {
   margin: 0;
   text-transform: uppercase;
 }
+.backdrop {position: fixed;
+left:0;
+top:0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.2);
+
+  transition: var(--transition-delay);
+}
+
+.modal {position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:528px;
+min-height: 581px;
+background-color:white;
+border-radius: 4px;
+animation: YouSpinMeRoundNow 4s ease-in-out;
+box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+.modal:focus {-webkit-animation: 1s ease-out backwards;
+animation:  1s ease-out backwards;}
+.modal:active {-webkit-animation: none; 
+  animation: none;}
+@keyframes YouSpinMeRoundNow {
+ 33% {top: 80%;
+  left:80%;
+rotate: 720deg;
+scale:0.20;
+opacity: 0.2;
+background-color: black; }
+  66% {top:20%;
+  left: 20%;
+rotate: 1440deg;
+scale: 0.40;
+opacity: 0.4;
+background-color: grey;}
+  100%{left: 50%;
+  top:50%;
+rotate: 2160deg;
+scale:1;
+opacity:1;}
+}
+
+.close-btn {position:absolute;
+top:8px;
+right:8px;
+width:30px;
+height:30px;
+background-color: white;
+border: 1px solid rgba(0,0,0,0.1);
+border-radius: 50%;}
+.close-btn:before,.close-btn:after{
+    content:'';
+    width:15px;
+    height:2px;
+    background-color:black;   
+}
+
+.close-btn::before{position: absolute;
+  transform:rotate(45deg) ;
+  left: 25%;
+  
+}
+.close-btn::after{position: absolute;
+  transform:rotate(-45deg) ;
+  left: 25%;
+  
+  }
+.is-hidden {opacity: 0;
+visibility: hidden;
+pointer-events: none;}
