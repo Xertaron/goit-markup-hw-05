@@ -5,7 +5,7 @@
 :root {
   /*Nie wpisałem tu kolorów białego i czarnego jako, że się je szybciej wpisuje niż pozostałe i pojawiają się tylko kilka razy na całej stronie. Czy lepiej jednak wpisywać tu każdy kolor?*/
   --brand-color: rgb(33, 150, 243, 100%);
-  --brand-color-opaque:rgb(33, 150, 243, 90%);
+  --brand-color-opaque: rgb(33, 150, 243, 90%);
   --text-color: rgb(33, 33, 33, 100%);
   --background-color: rgb(47, 48, 58, 100%);
   --hero-background: rgb(47, 48, 58, 40%);
@@ -13,7 +13,8 @@
   --info-footer-color: rgb(255, 255, 255, 60%);
   --group-color: rgb(245, 244, 250, 100%);
   --icon-color: rgb(175, 177, 184, 100%);
-  --transition-delay:cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  --transition-delay: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  --animation: YouSpinMeRoundNow 4s cubic-bezier(0.4, 0, 0.2, 1) 250ms 1 both;
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -21,7 +22,7 @@ body {
   font-size: 14px;
   background-color: #e5e5e5;
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
 li {
@@ -132,7 +133,7 @@ header section ul li:first-child {
   color: white;
   margin-left: 252px;
   margin-right: 252px;
-  
+
   text-transform: uppercase;
   /*Z uwagi na to że container w figmie jest odrobinę mniejszy, nie jestem w stanie wycentrować elementów przy wykorzystaniu tych samych wartości marginesów.*/
 }
@@ -171,24 +172,21 @@ a:active,
 .alternate-logo-color:focus,
 .alternate-logo-color:active {
   color: var(--brand-color);
-  transition: var(--transition-delay)
+  transition: var(--transition-delay);
 }
 .current {
   color: var(--brand-color);
   position: relative;
-  
-  
 }
-.current::after {display: block;
+.current::after {
+  display: block;
   content: "";
   position: absolute;
-  top:44px;
-width: 100%;
-height: 4px;
-border-radius: 2px;
-background-color: var(--brand-color);
-
-
+  top: 44px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--brand-color);
 }
 /*Przyciski*/
 button:hover,
@@ -196,7 +194,7 @@ button:focus,
 button:active {
   background-color: var(--brand-color);
   color: white;
-  transition: var(--transition-delay)
+  transition: var(--transition-delay);
 }
 
 .social-media-item:hover,
@@ -208,7 +206,7 @@ button:active {
   --color4: white;
   background-color: var(--brand-color);
   cursor: pointer;
-  transition: var(--transition-delay)
+  transition: var(--transition-delay);
 }
 .social-media-item:active {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -239,25 +237,27 @@ button:active {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
-  transition: var(--transition-delay)
-  }
-  .overlay {position: absolute;
+  transition: var(--transition-delay);
+}
+.overlay {
+  position: absolute;
   width: 370px;
   height: 294px;
   background-color: var(--brand-color-opaque);
   font-size: 18px;
   color: white;
   line-height: 1.33;
-padding: 49px 45px 49px 24px;
-transition: var(--transition-delay);
-transform: translateY(100%); /*Nie wiem czemu ustawiając na 100%, element minimalnie wystaje... a przynajmniej tak było, zmieniłem z powrotem na 100 i już tego nie ma. Nie mam pojęcia dlaczego.*/
-
-
+  padding: 49px 45px 49px 24px;
+  transition: var(--transition-delay);
+  transform: translateY(
+    100%
+  ); /*Nie wiem czemu ustawiając na 100%, element minimalnie wystaje... a przynajmniej tak było, zmieniłem z powrotem na 100 i już tego nie ma. Nie mam pojęcia dlaczego.*/
 }
 .portfolio-main-item:hover .overlay,
 .portfolio-main-item:focus .overlay,
-.portfolio-main-item:active .overlay {transform: translateY(0);
-  transition: var(--transition-delay)
+.portfolio-main-item:active .overlay {
+  transform: translateY(0);
+  transition: var(--transition-delay);
 }
 /*Main*/
 .background-main {
@@ -295,7 +295,6 @@ li:last-child button {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0;
-  
 }
 .portfolio-description {
   padding-left: 24px;
@@ -303,7 +302,6 @@ li:last-child button {
   position: relative;
   z-index: 1;
   background-color: white;
-  
 }
 .portfolio-name {
   font-size: 18px;
@@ -322,7 +320,7 @@ li:last-child button {
   display: grid;
   position: relative;
   overflow: hidden;
-  }
+}
 .portfolio-main-item:nth-child(n + 7) {
   margin-bottom: 0px;
 }
@@ -356,7 +354,6 @@ li:last-child button {
   font-weight: 700;
   line-height: 1.13;
   text-align: center;
-  
 }
 .job-example {
   display: flex;
@@ -365,20 +362,23 @@ li:last-child button {
   gap: 30px;
   padding: 0;
 }
-.job-item {width: 370px;
-height:294px;
-position: relative;}
-.job-list-item {position: absolute;
+.job-item {
+  width: 370px;
+  height: 294px;
+  position: relative;
+}
+.job-list-item {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   bottom: 0%;
-height: 70px;
-width: 370px;
-background-color: rgba(47,48,58,80%);
-font-weight: 700;
-color: white;
-text-transform: uppercase;
+  height: 70px;
+  width: 370px;
+  background-color: rgba(47, 48, 58, 80%);
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
 }
 
 .team-name {
@@ -432,9 +432,8 @@ text-transform: uppercase;
 .our-clients-list {
   display: flex;
   justify-content: space-between;
-  margin-top:50px;
+  margin-top: 50px;
   padding: 0;
-  
 }
 .our-clients-icon {
   width: 170px;
@@ -513,76 +512,111 @@ text-transform: uppercase;
   margin: 0;
   text-transform: uppercase;
 }
-.backdrop {position: fixed;
-left:0;
-top:0;
-width: 100%;
-height: 100%;
-background-color: rgba(0,0,0,0.2);
-
+/*Modal*/
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  visibility: visible;
+  opacity: 1;
+  animation: FadeIn 4s ease-in-out;
+  transition-property: opacity, visibility;
   transition: var(--transition-delay);
 }
-
-.modal {position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:528px;
-min-height: 581px;
-background-color:white;
-border-radius: 4px;
-animation: YouSpinMeRoundNow 4s ease-in-out;
-box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+.backdrop:active {
+  animation: none;
 }
-.modal:focus {-webkit-animation: 1s ease-out backwards;
-animation:  1s ease-out backwards;}
-.modal:active {-webkit-animation: none; 
-  animation: none;}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  min-height: 581px;
+  background-color: white;
+  border-radius: 4px;
+  transition: var(--transition-delay);
+  animation: var(--animation);
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.modal:active {
+  animation: none;
+}
 @keyframes YouSpinMeRoundNow {
- 33% {top: 80%;
-  left:80%;
-rotate: 720deg;
-scale:0.20;
-opacity: 0.2;
-background-color: black; }
-  66% {top:20%;
-  left: 20%;
-rotate: 1440deg;
-scale: 0.40;
-opacity: 0.4;
-background-color: grey;}
-  100%{left: 50%;
-  top:50%;
-rotate: 2160deg;
-scale:1;
-opacity:1;}
-}
-
-.close-btn {position:absolute;
-top:8px;
-right:8px;
-width:30px;
-height:30px;
-background-color: white;
-border: 1px solid rgba(0,0,0,0.1);
-border-radius: 50%;}
-.close-btn:before,.close-btn:after{
-    content:'';
-    width:15px;
-    height:2px;
-    background-color:black;   
-}
-
-.close-btn::before{position: absolute;
-  transform:rotate(45deg) ;
-  left: 25%;
-  
-}
-.close-btn::after{position: absolute;
-  transform:rotate(-45deg) ;
-  left: 25%;
-  
+  33% {
+    top: 80%;
+    left: 80%;
+    rotate: 720deg;
+    scale: 0.2;
+    opacity: 0.2;
+    background-color: black;
   }
-.is-hidden {opacity: 0;
-visibility: hidden;
-pointer-events: none;}
+  66% {
+    top: 20%;
+    left: 20%;
+    rotate: 1440deg;
+    scale: 0.4;
+    opacity: 0.4;
+    background-color: grey;
+  }
+  100% {
+    left: 50%;
+    top: 50%;
+    rotate: 2160deg;
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes FadeIn {
+  33% {
+    opacity: 0.2;
+    scale: 0.3;
+  }
+  66% {
+    opacity: 0.4;
+    scale: 0.5;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.close-btn:before,
+.close-btn:after {
+  content: "";
+  width: 15px;
+  height: 2px;
+  background-color: black;
+}
+
+.close-btn::before {
+  position: absolute;
+  transform: rotate(45deg);
+  left: 25%;
+}
+.close-btn::after {
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 25%;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
